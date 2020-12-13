@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogoBlog.App", "BlogoBlog.App\BlogoBlog.App.csproj", "{43C05968-03BF-41D1-AFFB-232C8F447811}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogoBlog.Database", "BlogoBlog.Database\BlogoBlog.Database.csproj", "{E950C01C-9A72-4C11-986D-E6FB54BF37C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogoblog.Translation", "Blogoblog.Translation\Blogoblog.Translation.csproj", "{A22E2398-5913-49BF-8C1F-808B9BB9AF81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{43C05968-03BF-41D1-AFFB-232C8F447811}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43C05968-03BF-41D1-AFFB-232C8F447811}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43C05968-03BF-41D1-AFFB-232C8F447811}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E950C01C-9A72-4C11-986D-E6FB54BF37C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E950C01C-9A72-4C11-986D-E6FB54BF37C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E950C01C-9A72-4C11-986D-E6FB54BF37C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E950C01C-9A72-4C11-986D-E6FB54BF37C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A22E2398-5913-49BF-8C1F-808B9BB9AF81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A22E2398-5913-49BF-8C1F-808B9BB9AF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A22E2398-5913-49BF-8C1F-808B9BB9AF81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A22E2398-5913-49BF-8C1F-808B9BB9AF81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
