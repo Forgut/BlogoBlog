@@ -1,0 +1,26 @@
+﻿@using BlogoBlog.App.l10n;
+@model BlogoBlog.App.Models.Login.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<div style="justify-content: center">
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="warning">
+            @Model.ErrorMessage
+        </div>
+    }
+    @using (Html.BeginForm())
+    {
+        <div style="width: auto">
+            @Html.LabelFor(x => x.Login)
+            @Html.EditorFor(x => x.Login)
+        </div>
+        <div style="width: auto">
+            @Html.LabelFor(x => x.Password)
+            @Html.EditorFor(x => x.Password)
+        </div>
+        <input type="submit" value="@Translation.Login" />
+    }
+</div>
