@@ -5,22 +5,22 @@
 }
 
 <div style="justify-content: center">
-    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
-    {
-        <div class="warning">
-            @Model.ErrorMessage
-        </div>
-    }
     @using (Html.BeginForm())
     {
         <div style="width: auto">
-            @Html.LabelFor(x => x.Login)
+            <div>
+                @Html.LabelFor(x => x.Login)
+            </div>
             @Html.EditorFor(x => x.Login)
         </div>
         <div style="width: auto">
-            @Html.LabelFor(x => x.Password)
-            @Html.EditorFor(x => x.Password)
+            <div>
+                @Html.LabelFor(x => x.Password)
+            </div>
+            @Html.EditorFor(x => x.Password, new { htmlAttributes = new { type="password" } })
         </div>
-        <input type="submit" value="@Translation.Login" />
+        <div style="margin-top: 10px">
+            <input type="submit" value="@Translation.Login" class="btn btn-info" />
+        </div>
     }
 </div>

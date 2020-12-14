@@ -6,6 +6,7 @@ namespace BlogoBlog.App.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.ErrorMessage = "Example";
             return View();
         }
 

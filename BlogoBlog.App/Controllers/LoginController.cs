@@ -17,7 +17,7 @@ namespace BlogoBlog.App.Controllers
         {
             if (model.Login == "admin" && model.Password == "password")
                 return RedirectToAction("Index", "Home");
-            model.ErrorMessage = l10n.Translation.LoginErrorMessage;
+            ViewBag.ErrorMessage = l10n.Translation.LoginErrorMessage;
             return View(model);
         }
     }
