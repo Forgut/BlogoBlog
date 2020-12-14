@@ -2,7 +2,7 @@
 
 namespace BlogoBlog.App.Models.Login
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginViewModel
     {
         [Display(Name = nameof(l10n.Translation.Login), ResourceType = typeof(l10n.Translation))]
         public string Login { get; set; }
