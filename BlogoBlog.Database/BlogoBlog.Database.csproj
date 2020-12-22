@@ -65,14 +65,61 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blog.cs">
+      <DependentUpon>BlogoBlogEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BlogoBlogEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlogoBlogEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BlogoBlogEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlogoBlogEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BlogoBlogEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlogoBlogEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Comments.cs">
+      <DependentUpon>BlogoBlogEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="Post.cs">
+      <DependentUpon>BlogoBlogEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PostCategory.cs">
+      <DependentUpon>BlogoBlogEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs">
+      <DependentUpon>BlogoBlogEntities.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <EntityDeploy Include="BlogoBlogEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BlogoBlogEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BlogoBlogEntities.edmx.diagram">
+      <DependentUpon>BlogoBlogEntities.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BlogoBlogEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BlogoBlogEntities.edmx</DependentUpon>
+      <LastGenOutput>BlogoBlogEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BlogoBlogEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BlogoBlogEntities.edmx</DependentUpon>
+      <LastGenOutput>BlogoBlogEntities.cs</LastGenOutput>
+    </Content>
     <Content Include="TestDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

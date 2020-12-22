@@ -7,7 +7,6 @@ namespace BlogoBlog.App.Controllers
     {
         public ActionResult Index()
         {
-            var dupa = Database.Database.Context.Blog.FirstOrDefault();
             return View();
         }
     }

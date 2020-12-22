@@ -8,13 +8,13 @@ namespace BlogoBlog.Database
 {
     public static class Database
     {
-        private static blogoblogEntities _context;
-        public static blogoblogEntities Context
+        private static BlogoblogEntieties _context;
+        public static BlogoblogEntieties Context
         {
             get
             {
                 if (_context == null)
-                    _context = new blogoblogEntities();
+                    _context = new BlogoblogEntieties();
                 return _context;
             }
         }
