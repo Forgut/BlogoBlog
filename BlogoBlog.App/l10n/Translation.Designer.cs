@@ -86,5 +86,23 @@ namespace BlogoBlog.App.l10n {
                 return ResourceManager.GetString("Password", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeated password is incorrect.
+        /// </summary>
+        public static string PasswordsMustBeEqual {
+            get {
+                return ResourceManager.GetString("PasswordsMustBeEqual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration.
+        /// </summary>
+        public static string Registration {
+            get {
+                return ResourceManager.GetString("Registration", resourceCulture);
+            }
+        }
     }
 }

@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace BlogoBlog.App.Controllers
 {
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
         [HttpGet]
         public ActionResult Login()
@@ -17,7 +17,7 @@ namespace BlogoBlog.App.Controllers
         {
             if (model.Login == "admin" && model.Password == "password")
                 return RedirectToAction("Index", "Home");
-            ViewBag.ErrorMessage = l10n.Translation.LoginErrorMessage;
+            CreateErrorMessage(l10n.Translation.LoginErrorMessage);
             return View(model);
         }
     }

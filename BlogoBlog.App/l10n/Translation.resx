@@ -126,4 +126,10 @@
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="PasswordsMustBeEqual" xml:space="preserve">
+    <value>Repeated password is incorrect</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Registration</value>
+  </data>
 </root>
