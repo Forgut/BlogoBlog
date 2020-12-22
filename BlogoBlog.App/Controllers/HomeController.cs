@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 
 namespace BlogoBlog.App.Controllers
 {
@@ -6,7 +7,7 @@ namespace BlogoBlog.App.Controllers
     {
         public ActionResult Index()
         {
-
+            var dupa = Database.Database.Context.Blog.FirstOrDefault();
             return View();
         }
     }
