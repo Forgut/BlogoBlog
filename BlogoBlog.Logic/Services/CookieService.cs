@@ -22,5 +22,16 @@ namespace BlogoBlog.Logic.Services
             cookie.Expires = DateTime.Now.AddDays(1);
             _response.Cookies.Add(cookie);
         }
+
+        public HttpCookie GetLoggedUserCookie()
+        {
+            return _response.Cookies[LOGGED_USER];
+        }
+        public void RemoveLoggedUserCookie()
+        {
+            if (_response.Cookies[LOGGED_USER] is null)
+                return;
+            _response.Cookies.Remove(LOGGED_USER);
+        }
     }
 }
