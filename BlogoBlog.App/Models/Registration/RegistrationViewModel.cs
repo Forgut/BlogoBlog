@@ -16,5 +16,6 @@ namespace BlogoBlog.App.Models.Registration
         public string PasswordRepeated { get; set; }
         [Required]
         public string Email { get; set; }
+        public bool IsBlogger { get; set; }
     }
 }

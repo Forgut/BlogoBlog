@@ -30,7 +30,7 @@ namespace BlogoBlog.App.Controllers
             }
 
             var service = new RegistrationService();
-            var result = service.Register(model.Email, model.Password, model.Username);
+            var result = service.Register(model.Email, model.Password, model.Username, model.IsBlogger);
             if (result != ERegistrationResponse.OK)
             {
                 CreateErrorMessage(result.ToString());

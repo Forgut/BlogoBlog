@@ -11,7 +11,7 @@ namespace BlogoBlog.Logic.Services
 {
     public class RegistrationService
     {
-        public ERegistrationResponse Register(string email, string password, string username)
+        public ERegistrationResponse Register(string email, string password, string username, bool isBlogger)
         {
             if (email is null || password is null || username is null)
                 return ERegistrationResponse.RequiredFieldIsNull;
@@ -22,7 +22,7 @@ namespace BlogoBlog.Logic.Services
                     Email = email,
                     Password = password,
                     Name = username,
-                    Type = (int)EUserType.Reader
+                    Type = isBlogger ? (int)EUserType.Blogger : (int)EUserType.Reader
                 };
                 Database.Database.Context.User.Add(user);
                 Database.Database.Save();
