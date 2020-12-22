@@ -1,4 +1,6 @@
 ﻿using BlogoBlog.App.Models.Login;
+using BlogoBlog.Logic.Enums;
+using BlogoBlog.Logic.Services;
 using System.Web.Mvc;
 
 namespace BlogoBlog.App.Controllers
@@ -15,8 +17,12 @@ namespace BlogoBlog.App.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel model)
         {
-            if (model.Login == "admin" && model.Password == "password")
+            var result = new RegistrationService().Login(model.Login, model.Password);
+            if (result == ELoginResult.OK)
+            {
+                new CookieService(Response).AddUserCookie(model.Login);
                 return RedirectToAction("Index", "Home");
+            }
             CreateErrorMessage(l10n.Translation.LoginErrorMessage);
             return View(model);
         }

@@ -9,6 +9,7 @@ namespace BlogoBlog.App.Controllers
     {
         public ActionResult Index()
         {
+            
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-EN");
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-EN");
             return View();
