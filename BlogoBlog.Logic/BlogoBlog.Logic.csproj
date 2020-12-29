@@ -53,6 +53,7 @@
     <Compile Include="Enums\ERegistrationResponse.cs" />
     <Compile Include="Enums\EUserType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\BlogProvider.cs" />
     <Compile Include="Providers\UserProvider.cs" />
     <Compile Include="Services\CookieService.cs" />
     <Compile Include="Services\RegistrationService.cs" />

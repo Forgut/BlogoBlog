@@ -70,6 +70,15 @@ namespace BlogoBlog.App.l10n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Blogs.
+        /// </summary>
+        public static string Blogs {
+            get {
+                return ResourceManager.GetString("Blogs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change email.
         /// </summary>
         public static string ChangeEmail {

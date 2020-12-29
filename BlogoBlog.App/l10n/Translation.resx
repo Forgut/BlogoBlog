@@ -120,6 +120,9 @@
   <data name="Blogger" xml:space="preserve">
     <value>Blogger</value>
   </data>
+  <data name="Blogs" xml:space="preserve">
+    <value>Blogs</value>
+  </data>
   <data name="ChangeEmail" xml:space="preserve">
     <value>Change email</value>
   </data>
