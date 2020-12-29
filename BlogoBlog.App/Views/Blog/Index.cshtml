@@ -6,7 +6,10 @@
 
 @foreach (var post in Model.Posts)
 {
-    <div class="grid-item img-rounded text-center" style="background-color: aqua">
-        @Html.ActionLink(post.Title, "Index", "Post", new { id = post.ID }, null)
+    <div style="width: 50%" class="center">
+
+        <div class="img-rounded text-center" style="background-color: aqua">
+            @Html.ActionLink(post.Title, "Index", "Post", new { id = post.ID }, null)
+        </div>
     </div>
 }
