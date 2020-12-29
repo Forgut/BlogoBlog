@@ -86,11 +86,8 @@
     <Compile Include="Comments.cs">
       <DependentUpon>BlogoBlogEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database.cs" />
+    <Compile Include="Db.cs" />
     <Compile Include="Post.cs">
-      <DependentUpon>BlogoBlogEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PostCategory.cs">
       <DependentUpon>BlogoBlogEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

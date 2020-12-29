@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlogoBlog.Database
 {
-    public static class Database
+    public static class Db
     {
         private static BlogoblogEntieties _context;
         public static BlogoblogEntieties Context

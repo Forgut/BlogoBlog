@@ -13,7 +13,7 @@ namespace BlogoBlog.Logic.Services
     {
         public EBlogCreationResponse Create(string name)
         {
-            if (Database.Database.Context.Blog.SingleOrDefault(x => x.BlogName == name) != null)
+            if (Database.Db.Context.Blog.SingleOrDefault(x => x.BlogName == name) != null)
                 return EBlogCreationResponse.NameNotUnique;
             var blog = new Blog()
             {
@@ -23,7 +23,7 @@ namespace BlogoBlog.Logic.Services
             };
             try
             {
-                Database.Database.Context.Blog.Add(blog);
+                Database.Db.Context.Blog.Add(blog);
                 return EBlogCreationResponse.OK;
             }
             catch (Exception)

@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\EBlogCreationResponse.cs" />
+    <Compile Include="Enums\EPostCreationResult.cs" />
     <Compile Include="Enums\ELoginResult.cs" />
     <Compile Include="Enums\ERegistrationResponse.cs" />
     <Compile Include="Enums\EUserType.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Providers\UserProvider.cs" />
     <Compile Include="Services\BlogService.cs" />
     <Compile Include="Services\CookieService.cs" />
+    <Compile Include="Services\PostService.cs" />
     <Compile Include="Services\RegistrationService.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -11,11 +11,11 @@ namespace BlogoBlog.Logic.Providers
     {
         public IEnumerable<Blog> GetBlogs()
         {
-            return Database.Database.Context.Blog.ToList();
+            return Database.Db.Context.Blog.ToList();
         }
         public Blog GetBlog(int id)
         {
-            return Database.Database.Context.Blog.SingleOrDefault(x => x.Id == id);
+            return Database.Db.Context.Blog.SingleOrDefault(x => x.Id == id);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace BlogoBlog.Logic.Services
                     Name = username,
                     Type = isBlogger ? (int)EUserType.Blogger : (int)EUserType.Reader
                 };
-                Database.Database.Context.User.Add(user);
+                Database.Db.Context.User.Add(user);
                 return ERegistrationResponse.OK;
             }
             catch (Exception)
@@ -35,7 +35,7 @@ namespace BlogoBlog.Logic.Services
 
         public ELoginResult Login(string login, string password)
         {
-            var users = Database.Database.Context.User.Where(x => x.Name == login || x.Email == login);
+            var users = Database.Db.Context.User.Where(x => x.Name == login || x.Email == login);
             if (users.Count() != 1)
                 return ELoginResult.UsernameIncorrect;
             var user = users.First();

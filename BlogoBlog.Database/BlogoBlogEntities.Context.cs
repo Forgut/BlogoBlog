@@ -30,7 +30,6 @@ namespace BlogoBlog.Database
         public virtual DbSet<Blog> Blog { get; set; }
         public virtual DbSet<Comments> Comments { get; set; }
         public virtual DbSet<Post> Post { get; set; }
-        public virtual DbSet<PostCategory> PostCategory { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

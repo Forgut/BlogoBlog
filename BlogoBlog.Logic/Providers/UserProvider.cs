@@ -11,7 +11,7 @@ namespace BlogoBlog.Logic.Providers
     {
         public User GetUser(string name)
         {
-            return Database.Database.Context.User.SingleOrDefault(x => x.Name == name);
+            return Database.Db.Context.User.SingleOrDefault(x => x.Name == name);
         }
     }
 }

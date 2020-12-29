@@ -1,6 +1,9 @@
 ﻿using BlogoBlog.App.Models.Blog;
+using BlogoBlog.App.Models.Post;
+using BlogoBlog.Database;
 using BlogoBlog.Logic.Providers;
 using BlogoBlog.Logic.Services;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace BlogoBlog.App.Controllers
@@ -11,10 +14,20 @@ namespace BlogoBlog.App.Controllers
         {
             var provider = new BlogProvider();
             var blog = provider.GetBlog(id);
+            var posts = Db.Context.Post.Where(x => x.BlogId == id)
+                .Select(x=>new PostViewModel()
+                {
+                    ID = x.Id,
+                    BlogID = x.BlogId,
+                    Content = x.Data,
+                    Title = x.Title,
+                })
+                .ToList();
             var model = new BlogViewModel()
             {
                 ID = id,
-                Name = blog.BlogName
+                Name = blog.BlogName,
+                Posts = posts
             };
             return View(model);
         }
@@ -34,7 +47,7 @@ namespace BlogoBlog.App.Controllers
                 CreateErrorMessage(l10n.Translation.NameNotUnique);
                 return View(model);
             }
-            Database.Database.Save();
+            Database.Db.Save();
             return RedirectToAction("Index", "Home");
         }
     }

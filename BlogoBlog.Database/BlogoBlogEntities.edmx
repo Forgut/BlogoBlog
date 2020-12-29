@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BlogoBlogEntietiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BlogoBlogEntietiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Blog">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="BlogName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="BackgroundImage" Type="varchar" MaxLength="50" Nullable="false" />
@@ -18,7 +18,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PostID" Type="int" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
@@ -28,26 +28,18 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BlogId" Type="int" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Data" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Inserted" Type="datetime" />
           <Property Name="TitleImage" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="PostCategory">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="PostID" Type="int" Nullable="false" />
-          <Property Name="Category" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
@@ -102,23 +94,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PostCategory_UserID">
-          <End Role="Post" Type="Self.Post" Multiplicity="1" />
-          <End Role="PostCategory" Type="Self.PostCategory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Post">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PostCategory">
-              <PropertyRef Name="PostID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="BlogoBlogEntietiesModelStoreContainer">
           <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PostCategory" EntityType="Self.PostCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Blog_UserID" Association="Self.FK_Blog_UserID">
             <End Role="User" EntitySet="User" />
@@ -136,13 +115,8 @@
             <End Role="Blog" EntitySet="Blog" />
             <End Role="Post" EntitySet="Post" />
           </AssociationSet>
-          <AssociationSet Name="FK_PostCategory_UserID" Association="Self.FK_PostCategory_UserID">
-            <End Role="Post" EntitySet="Post" />
-            <End Role="PostCategory" EntitySet="PostCategory" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BlogoBlogEntietiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -181,16 +155,6 @@
           <Property Name="TitleImage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Blog" Relationship="Self.FK_Post_BlogId" FromRole="Post" ToRole="Blog" />
           <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_PostID" FromRole="Post" ToRole="Comments" />
-          <NavigationProperty Name="PostCategory" Relationship="Self.FK_PostCategory_UserID" FromRole="Post" ToRole="PostCategory" />
-        </EntityType>
-        <EntityType Name="PostCategory">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="PostID" Type="Int32" Nullable="false" />
-          <Property Name="Category" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Post" Relationship="Self.FK_PostCategory_UserID" FromRole="PostCategory" ToRole="Post" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -253,23 +217,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PostCategory_UserID">
-          <End Role="Post" Type="Self.Post" Multiplicity="1" />
-          <End Role="PostCategory" Type="Self.PostCategory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Post">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PostCategory">
-              <PropertyRef Name="PostID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="BlogoblogEntieties" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Blog" EntityType="Self.Blog" />
           <EntitySet Name="Comments" EntityType="Self.Comments" />
           <EntitySet Name="Post" EntityType="Self.Post" />
-          <EntitySet Name="PostCategory" EntityType="Self.PostCategory" />
           <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="FK_Blog_UserID" Association="Self.FK_Blog_UserID">
             <End Role="User" EntitySet="User" />
@@ -286,10 +237,6 @@
           <AssociationSet Name="FK_Comments_UserID" Association="Self.FK_Comments_UserID">
             <End Role="User" EntitySet="User" />
             <End Role="Comments" EntitySet="Comments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PostCategory_UserID" Association="Self.FK_PostCategory_UserID">
-            <End Role="Post" EntitySet="Post" />
-            <End Role="PostCategory" EntitySet="PostCategory" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -328,15 +275,6 @@
                 <ScalarProperty Name="Data" ColumnName="Data" />
                 <ScalarProperty Name="Inserted" ColumnName="Inserted" />
                 <ScalarProperty Name="TitleImage" ColumnName="TitleImage" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PostCategory">
-            <EntityTypeMapping TypeName="BlogoBlogEntietiesModel.PostCategory">
-              <MappingFragment StoreEntitySet="PostCategory">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PostID" ColumnName="PostID" />
-                <ScalarProperty Name="Category" ColumnName="Category" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

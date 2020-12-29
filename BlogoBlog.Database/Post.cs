@@ -18,7 +18,6 @@ namespace BlogoBlog.Database
         public Post()
         {
             this.Comments = new HashSet<Comments>();
-            this.PostCategory = new HashSet<PostCategory>();
         }
     
         public int Id { get; set; }
@@ -31,7 +30,5 @@ namespace BlogoBlog.Database
         public virtual Blog Blog { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comments> Comments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PostCategory> PostCategory { get; set; }
     }
 }

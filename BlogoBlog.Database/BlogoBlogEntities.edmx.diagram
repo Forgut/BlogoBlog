@@ -8,13 +8,11 @@
         <EntityTypeShape EntityType="BlogoBlogEntietiesModel.Blog" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BlogoBlogEntietiesModel.Comments" Width="1.5" PointX="7.5" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BlogoBlogEntietiesModel.Post" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BlogoBlogEntietiesModel.PostCategory" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BlogoBlogEntietiesModel.User" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
         <AssociationConnector Association="BlogoBlogEntietiesModel.FK_Blog_UserID" ManuallyRouted="false" />
         <AssociationConnector Association="BlogoBlogEntietiesModel.FK_Post_BlogId" ManuallyRouted="false" />
         <AssociationConnector Association="BlogoBlogEntietiesModel.FK_Comments_PostID" ManuallyRouted="false" />
         <AssociationConnector Association="BlogoBlogEntietiesModel.FK_Comments_UserID" ManuallyRouted="false" />
-        <AssociationConnector Association="BlogoBlogEntietiesModel.FK_PostCategory_UserID" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
