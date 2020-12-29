@@ -1,13 +1,19 @@
 ﻿@model BlogoBlog.App.Models.Home.HomeViewModel
 
 <h2>@BlogoBlog.App.l10n.Translation.Blogs</h2>
-
-<div class="grid-container">
-    @foreach (var blog in Model.Blogs)
-    {
-        <div class="grid-item img-rounded text-center" style="background-color: @blog.Color">
-            @Html.ActionLink(blog.Name, "Index", "Blog", new { id = blog.ID }, null)
-        </div>
-    }
+<div>
+    <div >
+        <a href="@Url.Action("Create", "Blog")" class="glyphicon glyphicon-plus-sign" style="font-size: 40px;"></a>
+    </div>
+    <div class="grid-container">
+        @foreach (var blog in Model.Blogs)
+        {
+            <div class="grid-item img-rounded text-center" style="background-color: @blog.Color">
+                @Html.ActionLink(blog.Name, "Index", "Blog", new { id = blog.ID }, null)
+            </div>
+        }
+    </div>
 </div>
+
+
 

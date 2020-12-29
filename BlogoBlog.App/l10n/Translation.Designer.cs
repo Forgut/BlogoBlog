@@ -97,6 +97,15 @@ namespace BlogoBlog.App.l10n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string Login {
@@ -111,6 +120,15 @@ namespace BlogoBlog.App.l10n {
         public static string LoginErrorMessage {
             get {
                 return ResourceManager.GetString("LoginErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name already taken.
+        /// </summary>
+        public static string NameNotUnique {
+            get {
+                return ResourceManager.GetString("NameNotUnique", resourceCulture);
             }
         }
         

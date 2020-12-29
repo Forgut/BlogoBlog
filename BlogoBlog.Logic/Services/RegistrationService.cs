@@ -25,7 +25,6 @@ namespace BlogoBlog.Logic.Services
                     Type = isBlogger ? (int)EUserType.Blogger : (int)EUserType.Reader
                 };
                 Database.Database.Context.User.Add(user);
-                Database.Database.Save();
                 return ERegistrationResponse.OK;
             }
             catch (Exception)
