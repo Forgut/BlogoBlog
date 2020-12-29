@@ -22,8 +22,18 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink(BlogoBlog.App.l10n.Translation.Registration, "Register", "Registration")</li>
-                    <li>@Html.ActionLink(BlogoBlog.App.l10n.Translation.Login, "Login", "Login")</li>
+                    @{
+                        var loggedUserCookie = BlogoBlog.Logic.Services.CookieService.GetLoggedUserCookie(Response);
+                        if (loggedUserCookie == null || string.IsNullOrEmpty(loggedUserCookie.Value))
+                        {
+                            <li>@Html.ActionLink(BlogoBlog.App.l10n.Translation.Registration, "Register", "Registration")</li>
+                            <li>@Html.ActionLink(BlogoBlog.App.l10n.Translation.Login, "Login", "Login")</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink(loggedUserCookie.Value, "Index", "User")</li>
+                        }
+                    }
                 </ul>
             </div>
         </div>

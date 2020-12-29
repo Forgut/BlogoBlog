@@ -61,6 +61,33 @@ namespace BlogoBlog.App.l10n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Blogger.
+        /// </summary>
+        public static string Blogger {
+            get {
+                return ResourceManager.GetString("Blogger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change email.
+        /// </summary>
+        public static string ChangeEmail {
+            get {
+                return ResourceManager.GetString("ChangeEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change username.
+        /// </summary>
+        public static string ChangeUsername {
+            get {
+                return ResourceManager.GetString("ChangeUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string Login {
@@ -97,11 +124,29 @@ namespace BlogoBlog.App.l10n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reader.
+        /// </summary>
+        public static string Reader {
+            get {
+                return ResourceManager.GetString("Reader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Registration.
         /// </summary>
         public static string Registration {
             get {
                 return ResourceManager.GetString("Registration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
             }
         }
     }

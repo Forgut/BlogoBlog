@@ -28,7 +28,7 @@ namespace BlogoBlog.Logic.Services
                 Database.Database.Save();
                 return ERegistrationResponse.OK;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return ERegistrationResponse.UnknownError;
             }

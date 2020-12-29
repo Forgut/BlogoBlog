@@ -1,0 +1,12 @@
+﻿@model BlogoBlog.App.Models.User.UserViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Model.Username</h2>
+<h3>@Model.Email</h3>
+<h3>@BlogoBlog.App.l10n.Translation.Type: @Model.UserType.ToString()</h3>
+
+
+

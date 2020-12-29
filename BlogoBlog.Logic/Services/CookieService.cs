@@ -20,12 +20,20 @@ namespace BlogoBlog.Logic.Services
         {
             var cookie = new HttpCookie(LOGGED_USER, value);
             cookie.Expires = DateTime.Now.AddDays(1);
-            _response.Cookies.Add(cookie);
+            cookie.Secure = false;
+            _response.SetCookie(cookie);
         }
 
         public HttpCookie GetLoggedUserCookie()
         {
             return _response.Cookies[LOGGED_USER];
+        }
+        /// <summary>
+        /// This should be done some other way.
+        /// </summary>
+        public static HttpCookie GetLoggedUserCookie(HttpResponseBase response)
+        {
+            return response.Cookies[LOGGED_USER];
         }
         public void RemoveLoggedUserCookie()
         {
