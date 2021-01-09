@@ -2,7 +2,60 @@
 
 <h2>@Model.Title</h2>
 
-<hr/>
+<hr />
 <h1>
     @Model.Content
 </h1>
+<hr />
+<div>
+    <h2>@BlogoBlog.App.l10n.Translation.Comments</h2>
+</div>
+<div id="commentsSection">
+    <div style="display: flex; flex-direction: row">
+        <input type="text" id="newComment" style="width: 95%" />
+        <button onclick="AddNewComment()" style="width:5%" id="addNewComment" class="glyphicon glyphicon-share-alt"></button>
+    </div>
+    @if (Model.Comments.ToList().Any())
+    {
+        foreach (var comment in Model.Comments.ToList())
+        {
+            <div style="margin-left: 5%">
+                <div style="display:flex; flex-direction: row">
+                    <h4 class="glyphicon glyphicon-chevron-right" style="margin-right: 1%"></h4>
+                    <h4>@comment.UserName @BlogoBlog.App.l10n.Translation.Wrote:</h4>
+                </div>
+                @comment.Content
+                <br />
+                <h5 style="font-style: italic">@comment.Inserted.ToLongDateString() @comment.Inserted.ToLongTimeString()</h5>
+                <hr />
+            </div>
+        }
+    }
+    else
+    {
+        @BlogoBlog.App.l10n.Translation.NoComments
+    }
+</div>
+
+<script type="text/javascript">
+    function AddNewComment() {
+        var commentContent = $('#newComment').val()
+        console.log(commentContent);
+        if (commentContent) {
+            $.post('@Url.Action("AddComment", "Post")',
+            {
+                postID: @Model.ID,
+                commentValue: commentContent
+            });
+        }
+        $('#commentsSection').load(window.location.href + ' #commentsSection');
+    }
+
+    var input = document.getElementById("newComment");
+    input.addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("addNewComment").click();
+            }
+        });
+</script>

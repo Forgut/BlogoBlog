@@ -25,7 +25,7 @@ CREATE TABLE [dbo].[Post] (
     [Id]         INT          NOT NULL identity(1,1),
     [BlogId]     INT          NOT NULL,
     [Title]      VARCHAR (50) NOT NULL,
-    [Data]       VARCHAR (50) NOT NULL,
+    [Data]       VARCHAR (2000) NOT NULL,
     [Inserted]   DATETIME     NULL,
     [TitleImage] VARCHAR (50) NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)

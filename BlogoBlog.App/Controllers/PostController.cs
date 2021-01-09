@@ -1,4 +1,5 @@
-﻿using BlogoBlog.App.Models.Post;
+﻿using BlogoBlog.App.Models.Comment;
+using BlogoBlog.App.Models.Post;
 using BlogoBlog.Database;
 using BlogoBlog.Logic.Services;
 using System.Linq;
@@ -11,12 +12,25 @@ namespace BlogoBlog.App.Controllers
         public ActionResult Index(int id)
         {
             var post = Db.Context.Post.SingleOrDefault(x => x.Id == id);
+            var comments = post.Comments
+                .Select(x => new CommentViewModel()
+                {
+                    ID = x.Id,
+                    PostID = x.PostID,
+                    UserID = x.UserID,
+                    Content = x.Title,
+                    Inserted = x.Inserted,
+                    UserName = Db.Context.User.FirstOrDefault(y => y.Id == x.UserID).Name //todo thinking
+                })
+                .OrderByDescending(x => x.Inserted)
+                .AsEnumerable();
             var model = new PostViewModel()
             {
                 ID = post.Id,
                 BlogID = post.BlogId,
                 Content = post.Data,
-                Title = post.Title
+                Title = post.Title,
+                Comments = comments
             };
             return View(model);
         }
@@ -42,6 +56,14 @@ namespace BlogoBlog.App.Controllers
             }
             Db.Save();
             return RedirectToAction("Index", "Blog", new { id = model.BlogID });
+        }
+        [HttpPost]
+        public ActionResult AddComment(int postID, string commentValue)
+        {
+            var service = new CommentService();
+            service.Create(postID, commentValue);
+            Db.Save();
+            return new HttpStatusCodeResult(200);
         }
     }
 }

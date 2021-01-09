@@ -20,7 +20,7 @@ namespace BlogoBlog.Database
         }
         public static void Save()
         {
-            _context.SaveChanges();
+            Context.SaveChanges();
         }
     }
 }
