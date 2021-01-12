@@ -17,8 +17,6 @@ namespace BlogoBlog.Logic.Registration
                 if (_container == null)
                 {
                     _container = new Container(rules => rules.WithoutThrowOnRegisteringDisposableTransient()); 
-                    //.WithMvc(controllerReuse: Reuse.Transient,
-               //         throwIfUnresolved: t => t.IsController());
                 }
                 return _container;
             }
