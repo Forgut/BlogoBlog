@@ -6,13 +6,15 @@
 
 @foreach (var post in Model.Posts)
 {
-    <div style="width: 50%" class="center">
+    <div style="width: 75%; position: relative" class="center">
 
-        <div class="img-rounded text-center" style="background-color: aqua">
-            @Html.ActionLink(post.Title, "Index", "Post", new { id = post.ID }, null)
+        <div class="img-rounded text-center" style="position: relative; background-color: lightblue; opacity: 0.5">
+            <h3>@post.Title</h3>
             <div>
                 @post.Content
             </div>
+            <a href="@Url.Action("Index", "Post", new { id = post.ID })" title="@BlogoBlog.App.l10n.Translation.GoToComments" class="glyphicon glyphicon-comment" style="position:absolute;bottom: 1%; right: 1%; font-size: 25px;"></a>
+
         </div>
     </div>
 }

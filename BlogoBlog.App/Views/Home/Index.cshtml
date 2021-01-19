@@ -8,7 +8,7 @@
     <div class="grid-container">
         @foreach (var blog in Model.Blogs)
         {
-            <div class="grid-item img-rounded text-center" style="background-color: @blog.Color">
+            <div class="grid-item img-rounded text-center close" style="background-color: @blog.Color">
                 @Html.ActionLink(blog.Name, "Index", "Blog", new { id = blog.ID }, null)
             </div>
         }

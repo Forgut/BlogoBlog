@@ -12,8 +12,8 @@
 </div>
 <div id="commentsSection">
     <div style="display: flex; flex-direction: row">
-        <input type="text" id="newComment" style="width: 95%" />
-        <button onclick="AddNewComment()" style="width:5%" id="addNewComment" class="glyphicon glyphicon-share-alt"></button>
+        <input type="text" class="form-control" id="newComment" style="width: 95%; opacity: 0.5" />
+        <button onclick="AddNewComment()" style="background-color: lightblue; width:5%" id="addNewComment" class="glyphicon glyphicon-share-alt form-control"></button>
     </div>
     @if (Model.Comments.ToList().Any())
     {

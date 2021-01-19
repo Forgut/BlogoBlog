@@ -138,6 +138,9 @@
   <data name="Create" xml:space="preserve">
     <value>Create</value>
   </data>
+  <data name="GoToComments" xml:space="preserve">
+    <value>Go to comments section</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>

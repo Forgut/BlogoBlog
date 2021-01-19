@@ -124,6 +124,15 @@ namespace BlogoBlog.App.l10n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Go to comments section.
+        /// </summary>
+        public static string GoToComments {
+            get {
+                return ResourceManager.GetString("GoToComments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string Login {
