@@ -1,8 +1,7 @@
-﻿drop Table [dbo].[Comments];
-drop Table [dbo].[Blog];
-drop Table [dbo].[User];
-drop Table [dbo].[PostCategory];
+﻿drop Table [dbo].[Blog];
+drop Table [dbo].[Comments];
 drop Table [dbo].[Post];
+drop Table [dbo].[User];
 
 CREATE TABLE [dbo].[Blog] (
     [Id]              INT          NOT NULL identity(1,1),
@@ -31,12 +30,6 @@ CREATE TABLE [dbo].[Post] (
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
-CREATE TABLE [dbo].[PostCategory] (
-    [Id]       INT NOT NULL identity(1,1),
-    [PostID]   INT NOT NULL,
-    [Category] INT NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
-);
 
 CREATE TABLE [dbo].[User] (
     [Id]          INT          NOT NULL identity(1,1),
@@ -56,7 +49,5 @@ ALTER TABLE [dbo].[Comments] WITH NOCHECK
     ADD CONSTRAINT [FK_Comments_UserID] FOREIGN KEY ([UserID]) REFERENCES [dbo].[User] ([Id]);
 ALTER TABLE [dbo].[Post] WITH NOCHECK
     ADD CONSTRAINT [FK_Post_BlogId] FOREIGN KEY ([BlogId]) REFERENCES [dbo].[Blog] ([Id]);
-ALTER TABLE [dbo].[PostCategory] WITH NOCHECK
-    ADD CONSTRAINT [FK_PostCategory_UserID] FOREIGN KEY ([PostID]) REFERENCES [dbo].[Post] ([Id]);
 
 INSERT INTO [dbo].[User] values ('stanislaw.gilewicz@student.put.poznan.pl', 'password', 'admin', 'admin role', 2);

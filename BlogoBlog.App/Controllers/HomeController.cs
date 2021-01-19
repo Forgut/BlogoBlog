@@ -20,31 +20,11 @@ namespace BlogoBlog.App.Controllers
                     ID = x.Id,
                 })
                 .ToList();
-            foreach (var blog in blogs)
-                blog.Color = GetRandomColor();
             var model = new HomeViewModel()
             {
                 Blogs = blogs
             };
             return View(model);
-        }
-
-        private string GetRandomColor()
-        {
-            var rand = new Random().Next(4);
-            switch (rand)
-            {
-                case 0:
-                    return "yellow";
-                case 1:
-                    return "red";
-                case 2:
-                    return "blue";
-                case 3:
-                    return "green";
-                default:
-                    return "white";
-            }
         }
     }
 
