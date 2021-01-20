@@ -7,6 +7,10 @@
 <h2>@Model.Username</h2>
 <h3>@Model.Email</h3>
 <h3>@BlogoBlog.App.l10n.Translation.Type: @Model.UserType.ToString()</h3>
+@if (Model.UserType == BlogoBlog.Logic.Enums.EUserType.Reader)
+{
+    <a href="@Url.Action("UpgradeType", "User")" title="@BlogoBlog.App.l10n.Translation.UpgradeAccount" class="glyphicon glyphicon-circle-arrow-up" style="font-size: 40px;"></a>
+}
 
 
 

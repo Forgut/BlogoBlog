@@ -1,4 +1,5 @@
 ﻿using BlogoBlog.App.Models.User;
+using BlogoBlog.Database;
 using BlogoBlog.Logic.Enums;
 using BlogoBlog.Logic.Providers;
 using BlogoBlog.Logic.Services;
@@ -22,6 +23,14 @@ namespace BlogoBlog.App.Controllers
                 UserType = (EUserType)user.Type
             };
             return View(model);
+        }
+        [HttpGet]
+        public ActionResult UpgradeType()
+        {
+            var user = GetLoggedUser();
+            user.Type = (int)EUserType.Blogger;
+            Db.Save();
+            return RedirectToAction("Index");
         }
     }
 }

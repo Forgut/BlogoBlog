@@ -11,7 +11,7 @@ namespace BlogoBlog.Logic.Services
 {
     public class BlogService
     {
-        public EBlogCreationResponse Create(string name)
+        public EBlogCreationResponse Create(string name, int userID)
         {
             if (Database.Db.Context.Blog.SingleOrDefault(x => x.BlogName == name) != null)
                 return EBlogCreationResponse.NameNotUnique;
@@ -19,7 +19,7 @@ namespace BlogoBlog.Logic.Services
             {
                 BlogName = name,
                 BackgroundImage = "xd",
-                UserID = 1 //todo - logged user
+                UserID = userID
             };
             try
             {

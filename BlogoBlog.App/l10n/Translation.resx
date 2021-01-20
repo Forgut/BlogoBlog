@@ -177,6 +177,9 @@
   <data name="Type" xml:space="preserve">
     <value>Type</value>
   </data>
+  <data name="UpgradeAccount" xml:space="preserve">
+    <value>Upgrade account type</value>
+  </data>
   <data name="Wrote" xml:space="preserve">
     <value>wrote</value>
   </data>

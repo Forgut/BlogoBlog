@@ -241,6 +241,15 @@ namespace BlogoBlog.App.l10n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Upgrade account type.
+        /// </summary>
+        public static string UpgradeAccount {
+            get {
+                return ResourceManager.GetString("UpgradeAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to wrote.
         /// </summary>
         public static string Wrote {

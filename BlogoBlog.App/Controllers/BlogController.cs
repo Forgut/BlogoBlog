@@ -42,7 +42,7 @@ namespace BlogoBlog.App.Controllers
         public ActionResult Create(BlogViewModel model)
         {
             var service = new BlogService();
-            var result = service.Create(model.Name);
+            var result = service.Create(model.Name, GetLoggedUser().Id);
             if (result == Logic.Enums.EBlogCreationResponse.NameNotUnique)
             {
                 CreateErrorMessage(l10n.Translation.NameNotUnique);
