@@ -11,10 +11,19 @@
     <h2>@BlogoBlog.App.l10n.Translation.Comments</h2>
 </div>
 <div id="commentsSection">
-    <div style="display: flex; flex-direction: row">
-        <input type="text" class="form-control" id="newComment" style="width: 95%; opacity: 0.5" />
-        <button onclick="AddNewComment()" style="background-color: lightblue; width:5%" id="addNewComment" class="glyphicon glyphicon-share-alt form-control"></button>
-    </div>
+    @if (Model.IsLogged)
+    {
+        <div style="display: flex; flex-direction: row">
+            <input type="text" class="form-control" id="newComment" style="width: 95%; opacity: 0.5" />
+            <button onclick="AddNewComment()" style="background-color: lightblue; width:5%" id="addNewComment" class="glyphicon glyphicon-share-alt form-control"></button>
+        </div>
+    }
+    else
+    {
+        <div>
+            @BlogoBlog.App.l10n.Translation.LoginToAddComment
+        </div>
+    }
     @if (Model.Comments.ToList().Any())
     {
         foreach (var comment in Model.Comments.ToList())
@@ -24,7 +33,9 @@
                     <h4 class="glyphicon glyphicon-chevron-right" style="margin-right: 1%"></h4>
                     <h4>@comment.UserName @BlogoBlog.App.l10n.Translation.Wrote:</h4>
                 </div>
-                @comment.Content
+                <div style="color: white">
+                    @comment.Content
+                </div>
                 <br />
                 <h5 style="font-style: italic">@comment.Inserted.ToLongDateString() @comment.Inserted.ToLongTimeString()</h5>
                 <hr />

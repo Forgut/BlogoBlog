@@ -13,5 +13,6 @@ namespace BlogoBlog.App.Models.Post
         public string Content { get; set; }
         public int BlogID { get; set; }
         public IEnumerable<CommentViewModel> Comments { get; set; }
+        public bool IsLogged { get; set; }
     }
 }

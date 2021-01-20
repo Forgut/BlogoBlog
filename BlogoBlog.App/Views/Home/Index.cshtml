@@ -2,15 +2,22 @@
 
 <h2>@BlogoBlog.App.l10n.Translation.Blogs</h2>
 <div>
-    <div >
-        <a href="@Url.Action("Create", "Blog")" class="glyphicon glyphicon-plus-sign" style="font-size: 40px;"></a>
+    <div>
+        @if (Model.CanCreateBlogs)
+        {
+            <a href="@Url.Action("Create", "Blog")" class="glyphicon glyphicon-plus-sign" style="font-size: 40px;"></a>
+        }
     </div>
     <div class="grid-container">
         @foreach (var blog in Model.Blogs)
         {
-            <div class="grid-item img-rounded text-center close" style="text-wrap: normal; background-color: aliceblue">
-                @Html.ActionLink(blog.Name, "Index", "Blog", new { id = blog.ID }, null)
-            </div>
+        <div class="grid-item img-rounded text-center close" style="text-wrap: normal; background-color: aliceblue">
+            @Html.ActionLink(blog.Name, "Index", "Blog", new { id = blog.ID }, null)
+            <h5>
+                @BlogoBlog.App.l10n.Translation.Author: @blog.Author
+            </h5>
+        </div>
+            
         }
     </div>
 </div>

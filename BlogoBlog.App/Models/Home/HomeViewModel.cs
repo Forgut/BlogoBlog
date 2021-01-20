@@ -9,5 +9,6 @@ namespace BlogoBlog.App.Models.Home
     public class HomeViewModel
     {
         public List<BlogViewModel> Blogs { get; set; }
+        public bool CanCreateBlogs { get; set; }
     }
 }

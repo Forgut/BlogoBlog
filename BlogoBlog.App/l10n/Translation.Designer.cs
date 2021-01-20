@@ -70,6 +70,15 @@ namespace BlogoBlog.App.l10n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Author.
+        /// </summary>
+        public static string Author {
+            get {
+                return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blogger.
         /// </summary>
         public static string Blogger {
@@ -147,6 +156,15 @@ namespace BlogoBlog.App.l10n {
         public static string LoginErrorMessage {
             get {
                 return ResourceManager.GetString("LoginErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login in order to write comments.
+        /// </summary>
+        public static string LoginToAddComment {
+            get {
+                return ResourceManager.GetString("LoginToAddComment", resourceCulture);
             }
         }
         

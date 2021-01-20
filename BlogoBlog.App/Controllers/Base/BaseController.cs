@@ -19,6 +19,8 @@ namespace BlogoBlog.App.Controllers
             var service = new CookieService(HttpContext.Request, HttpContext.Response);
             var userProvider = IoC.Container.Resolve<UserProvider>();
             var loggedUserCookie = service.GetLoggedUserCookie();
+            if (loggedUserCookie == null)
+                return null;
             return userProvider.GetUser(loggedUserCookie.Value);
         }
     }

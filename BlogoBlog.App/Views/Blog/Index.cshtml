@@ -2,19 +2,21 @@
 
 <h2>@Model.Name</h2>
 
-<a href="@Url.Action("Create", "Post", new { blogID = Model.ID })" class="glyphicon glyphicon-plus-sign" style="font-size: 40px;"></a>
+@if (Model.IsOwner)
+{
+    <a href="@Url.Action("Create", "Post", new { blogID = Model.ID })" class="glyphicon glyphicon-plus-sign" style="font-size: 40px;"></a>
+}
 
 @foreach (var post in Model.Posts)
 {
     <div style="width: 75%; position: relative" class="center">
 
         <div class="img-rounded text-center" style="position: relative; background-color: lightblue; opacity: 0.5">
-            <h3>@post.Title</h3>
-            <div>
+            <h3 style="color: black; opacity: 1">@post.Title</h3>
+            <div style="color: black; opacity: 1">
                 @post.Content
             </div>
             <a href="@Url.Action("Index", "Post", new { id = post.ID })" title="@BlogoBlog.App.l10n.Translation.GoToComments" class="glyphicon glyphicon-comment" style="position:absolute;bottom: 1%; right: 1%; font-size: 25px;"></a>
-
         </div>
     </div>
 }

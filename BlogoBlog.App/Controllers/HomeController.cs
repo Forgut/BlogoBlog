@@ -1,4 +1,5 @@
 ﻿using BlogoBlog.App.Models.Home;
+using BlogoBlog.Logic.Enums;
 using BlogoBlog.Logic.Providers;
 using System;
 using System.Globalization;
@@ -18,11 +19,13 @@ namespace BlogoBlog.App.Controllers
                 {
                     Name = x.BlogName,
                     ID = x.Id,
+                    Author = x.User.Name
                 })
                 .ToList();
             var model = new HomeViewModel()
             {
-                Blogs = blogs
+                Blogs = blogs,
+                CanCreateBlogs = GetLoggedUser()?.Type > (int)EUserType.Reader
             };
             return View(model);
         }

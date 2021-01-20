@@ -27,7 +27,8 @@ namespace BlogoBlog.App.Controllers
             {
                 ID = id,
                 Name = blog.BlogName,
-                Posts = posts
+                Posts = posts,
+                IsOwner = blog.UserID == GetLoggedUser()?.Id,
             };
             return View(model);
         }

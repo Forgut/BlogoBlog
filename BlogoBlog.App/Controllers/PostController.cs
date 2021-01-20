@@ -30,7 +30,8 @@ namespace BlogoBlog.App.Controllers
                 BlogID = post.BlogId,
                 Content = post.Data,
                 Title = post.Title,
-                Comments = comments
+                Comments = comments,
+                IsLogged = GetLoggedUser() != null
             };
             return View(model);
         }
