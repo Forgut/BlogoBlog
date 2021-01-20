@@ -147,6 +147,9 @@
   <data name="LoginErrorMessage" xml:space="preserve">
     <value>Login or password are incorrect</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
   <data name="NameNotUnique" xml:space="preserve">
     <value>Name already taken</value>
   </data>

@@ -36,7 +36,7 @@ namespace BlogoBlog.App.Controllers
                 CreateErrorMessage(result.ToString());
                 return View(model);
             }
-            new CookieService(Response).AddUserCookie(model.Username);
+            new CookieService(HttpContext.Request, HttpContext.Response).AddUserCookie(model.Username);
             Database.Db.Save();
             return RedirectToAction("Index", "Home");
         }

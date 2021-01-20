@@ -14,10 +14,7 @@ namespace BlogoBlog.App.Controllers
     {
         public ActionResult Index()
         {
-            var service = new CookieService(Response);
-            var userCookie = service.GetLoggedUserCookie();
-            var provider = new UserProvider();
-            var user = provider.GetUser(userCookie.Value);
+            var user = GetLoggedUser();
             var model = new UserViewModel()
             {
                 Email = user.Email,

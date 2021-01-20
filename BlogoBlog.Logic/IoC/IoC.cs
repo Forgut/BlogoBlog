@@ -1,4 +1,5 @@
 ﻿using BlogoBlog.Database;
+using BlogoBlog.Logic.Providers;
 using DryIoc;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace BlogoBlog.Logic.Registration
         public static void Initialize()
         {
             Container.Register<BlogoblogEntieties>(Reuse.Singleton);
+            Container.Register<UserProvider>(Reuse.Singleton);
         }
 
     }

@@ -10,14 +10,14 @@ namespace BlogoBlog.Logic.Services
 {
     public class CommentService
     {
-        public ECreationResult Create(int postID, string content)
+        public ECreationResult Create(int postID, string content, int userID)
         {
             var comment = new Comments()
             {
                 Inserted = DateTime.Now,
                 PostID = postID,
                 Title = content,
-                UserID = 1 //todo logged user
+                UserID = userID
             };
             Db.Context.Comments.Add(comment);
             return ECreationResult.OK;

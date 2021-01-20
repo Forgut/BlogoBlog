@@ -61,7 +61,7 @@ namespace BlogoBlog.App.Controllers
         public ActionResult AddComment(int postID, string commentValue)
         {
             var service = new CommentService();
-            service.Create(postID, commentValue);
+            service.Create(postID, commentValue, GetLoggedUser().Id);
             Db.Save();
             return new HttpStatusCodeResult(200);
         }
