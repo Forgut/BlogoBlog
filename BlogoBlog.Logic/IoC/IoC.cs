@@ -1,6 +1,7 @@
 ﻿using BlogoBlog.Database;
 using BlogoBlog.Logic.Providers;
 using DryIoc;
+using DryIoc.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,15 +18,16 @@ namespace BlogoBlog.Logic.Registration
             {
                 if (_container == null)
                 {
-                    _container = new Container(rules => rules.WithoutThrowOnRegisteringDisposableTransient()); 
+                    _container = new Container(rules => rules.WithoutThrowOnRegisteringDisposableTransient())
+                    .WithMvc(controllerReuse: Reuse.Transient, throwIfUnresolved: t => t.IsController());
                 }
                 return _container;
             }
         }
         public static void Initialize()
         {
-            Container.Register<BlogoblogEntieties>(Reuse.Singleton);
-            Container.Register<UserProvider>(Reuse.Singleton);
+            Container.Register<BlogoblogEntieties>(Reuse.InWebRequest);
+            Container.Register<UserProvider>(Reuse.InWebRequest);
         }
 
     }
